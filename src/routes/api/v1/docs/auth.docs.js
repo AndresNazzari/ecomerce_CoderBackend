@@ -78,3 +78,24 @@
  *      '500':
  *        description: Server error
  */
+
+/**
+ * @swagger
+ * /auth/me:
+ *  get:
+ *    summary: Get user info from token
+ *    tags: [Authorizations]
+ *    security:
+ *      - bearerAuth: []
+ *    responses:
+ *      '200':
+ *        description: User logged in
+ *      '400':
+ *        description: Bad Request, authorization header must be Bearer <token>
+ *      '401':
+ *        description: Unauthorized, no token detected
+ *      '403':
+ *        description: Forbidden, token expired or incorrect
+ *      '500':
+ *        description: Server error
+ */
