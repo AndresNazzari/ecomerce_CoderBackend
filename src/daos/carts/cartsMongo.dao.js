@@ -33,6 +33,10 @@ export default class CartMongoDao extends MongoContainer {
     }
   }
 
+  async saveCart(cart) {
+    return await cart.save();
+  }
+
   static getInstance() {
     if (!CartMongoDao.instance) {
       CartMongoDao.instance = new CartMongoDao('carts');

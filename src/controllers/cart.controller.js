@@ -13,19 +13,26 @@ export default class CartController {
 
   async getProductsInCart(req, res) {
     const id = req.params.id;
-    const response = await this.cartService.getProductsInCart(id);
-    res.status(200).json(response);
+    try {
+      const response = await this.cartService.getProductsInCart(id);
+      res.status(200).json(response);
+    } catch (error) {
+      res.status(500).json({ msg: `Server Error: ${error.message}` });
+    }
   }
 
   async postCart(req, res) {
     const email = req.tokenDecoded.email;
     const cartExists = await this.cartService.getCartByEmail(email);
-
-    if (!cartExists) {
-      const response = await this.cartService.postCart(email);
-      res.status(200).json(response);
-    } else {
-      res.status(200).json({ cart: cartExists });
+    try {
+      if (!cartExists) {
+        const response = await this.cartService.postCart(email);
+        res.status(200).json(response);
+      } else {
+        res.status(200).json({ cart: cartExists });
+      }
+    } catch (error) {
+      res.status(500).json({ msg: `Server Error: ${error.message}` });
     }
   }
 

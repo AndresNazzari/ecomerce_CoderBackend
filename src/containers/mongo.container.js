@@ -16,12 +16,8 @@ export default class MongoContainer {
   }
 
   async getById(id) {
-    try {
-      const result = this.collection == 'products' ? await Product.find({ _id: id }) : await Cart.find({ _id: id });
-      return result.length > 0 ? result[0] : { msg: `${this.collection} no encontrado` };
-    } catch (error) {
-      return { msg: `Error Get by ID! ${error.message}` };
-    }
+    const result = this.collection == 'products' ? await Product.find({ _id: id }) : await Cart.find({ _id: id });
+    return result.length > 0 ? result[0] : { msg: `${this.collection} no encontrado` };
   }
 
   async deleteById(id) {

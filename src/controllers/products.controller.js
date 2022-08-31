@@ -13,13 +13,17 @@ export default class ProductsController {
 
   async getProducts(req, res) {
     const response = await this.productsService.getProducts();
-    res.status(200).json(response);
+    response.length > 0 ? res.status(200).json(response) : res.status(200).json({ msg: 'No hay productos' });
   }
 
   async getProduct(req, res) {
     const id = req.params.id;
-    const response = await this.productsService.getProduct({ _id: id });
-    res.status(200).json(response);
+    try {
+      const response = await this.productsService.getProduct({ _id: id });
+      res.status(200).json(response);
+    } catch (error) {
+      res.status(500).json({ msg: `Server Error or format id invalid: ${error.message}` });
+    }
   }
 
   async postProduct(req, res) {
@@ -29,15 +33,23 @@ export default class ProductsController {
     }
 
     const product = req.body;
-    const response = await this.productsService.postProduct(product);
-    res.status(200).json(response);
+    try {
+      const response = await this.productsService.postProduct(product);
+      res.status(200).json(response);
+    } catch (error) {
+      res.status(500).json({ msg: `Server Error: ${error.message}` });
+    }
   }
 
   async putProduct(req, res) {
     const id = req.params.id;
     const product = req.body;
-    const response = await this.productsService.putProduct({ _id: id }, product);
-    res.status(200).json(response);
+    try {
+      const response = await this.productsService.putProduct({ _id: id }, product);
+      res.status(200).json(response);
+    } catch (error) {
+      res.status(500).json({ msg: `Server Error: ${error.message}` });
+    }
   }
 
   async deleteProduct(req, res) {
