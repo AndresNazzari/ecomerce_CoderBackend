@@ -104,3 +104,15 @@
  *     items: [{title: "iPhone X", description: "iPhone X is the best phone ever", price: 100, discountPercentage: 10, rating: 4.9, stock: 135, category: "Smartphone", thumbnail: "https://www.apple.com/iphone-x/space/images/hero/iphone-x.jpg"}]
  *     timestamp: "2020-01-01T00:00:00.000Z"
  */
+
+/**
+ * @swagger
+ * components:
+ *  securitySchemes:
+ *   bearerAuth:
+ *    type: http
+ *    scheme: bearer
+ *    bearerFormat: JWT
+ * security:
+ *  - bearerAuth: []
+ */
