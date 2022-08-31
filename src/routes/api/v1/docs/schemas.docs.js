@@ -5,26 +5,26 @@
  *   User:
  *    type: object
  *    properties:
- *      username:
+ *      address:
  *         type: string
- *         description: The username of the user
- *      adress:
- *        type: string
- *        description: The adress of the user
+ *         description: The address of the user
+ *         example: "Calle falsa 123"
  *      email:
  *        type: string
  *        description: The email of the user
+ *        example: "johndoe@user.com"
  *      password:
  *        type: string
  *        description: The password of the user
+ *        example: "123456"
  *      roleId:
  *        type: number
  *        description: The role of the user in the system
+ *        example: 1
  *    example:
- *      username: "user1"
- *      adress: "adress1"
- *      email: "user@user.com"
- *      password: "password"
+ *      address: "Calle falsa 123"
+ *      email: "johndoe@user.com"
+ *      password: "123456"
  *      roleId: 1
  */
 
@@ -38,36 +38,44 @@
  *      title:
  *        type: string
  *        description: The title of the product
+ *        example: "iPhone X"
  *      description:
  *        type: string
  *        description: The description of the product
+ *        example: "iPhone X is the best phone ever"
  *      price:
  *        type: number
  *        description: The price of the product
+ *        example: 100
  *      discountPercentage:
  *        type: number
  *        description: The discount percentage of the product
+ *        example: 10
  *      rating:
  *        type: number
  *        description: The rating of the product
+ *        example: 4.9
  *      stock:
  *         type: number
  *         description: The stock of the product
+ *         example: 135
  *      category:
  *         type: string
  *         description: The category of the product
+ *         example: "Smartphone"
  *      thumbnail:
  *         type: string
  *         description: The thumbnail of the product
+ *         example: "https://www.apple.com/iphone-x/space/images/hero/iphone-x.jpg"
  *    example:
- *      title: "user1"
- *      description: "adress1"
- *      price: 25
+ *      title: "iPhone X"
+ *      description: "iPhone X is the best phone ever"
+ *      price: 100
  *      discountPercentage: 10
- *      rating: 4
+ *      rating: 4.9
  *      stock: 135
- *      category: "category1"
- *      thumbnail: "asdagew45t3e3sdfgsdfdsfg"
+ *      category: "Smartphone"
+ *      thumbnail: "https://www.apple.com/iphone-x/space/images/hero/iphone-x.jpg"
  */
 
 /**
@@ -79,18 +87,20 @@
  *    properties:
  *      email:
  *        type: string
- *        description: The of the user
+ *        description: The email of the user
+ *        example: "johndoe@user.com"
  *      items:
  *        type: array
- *        description: The products of the cart *
+ *        description: The products of the cart
  *        items:
  *          allOf:
  *           - $ref: '#/components/schemas/Product'
  *      timestamp:
  *        type: date
  *        description: The date of creation of the cart
+ *        example: "2020-01-01T00:00:00.000Z"
  *    example:
- *     email: "email@email.com"
- *     items: [{title: "product1", description: "description1", price: 25, discountPercentage: 10, rating: 4, stock: 135, category: "category1", thumbnail: "asdagew45t3e3sdfgsdfdsfg"},{title: "product1", description: "description1", price: 25, discountPercentage: 10, rating: 4, stock: 135, category: "category1", thumbnail: "asdagew45t3e3sdfgsdfdsfg"}]
+ *     email: "johndoe@user.com"
+ *     items: [{title: "iPhone X", description: "iPhone X is the best phone ever", price: 100, discountPercentage: 10, rating: 4.9, stock: 135, category: "Smartphone", thumbnail: "https://www.apple.com/iphone-x/space/images/hero/iphone-x.jpg"}]
  *     timestamp: "2020-01-01T00:00:00.000Z"
  */
