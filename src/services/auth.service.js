@@ -12,9 +12,9 @@ export default class AuthService {
     return user._doc;
   }
 
-  async registerUserService(adress, email, password, roleId) {
+  async registerUserService(address, email, password, roleId) {
     const passwordHash = await this.encryptPassword(password);
-    const userData = { adress, email, password: passwordHash, roleId };
+    const userData = { address, email, password: passwordHash, roleId };
 
     const newUser = await authApi.createUser(userData);
     await mailApi.sendEmail(newUser, true);

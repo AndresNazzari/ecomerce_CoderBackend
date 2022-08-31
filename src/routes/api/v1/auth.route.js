@@ -28,7 +28,7 @@ export default class AuthRoute extends express.Router {
     this.post(
       '/register',
       [
-        check('adress', 'Adress is Required').not().isEmpty(),
+        check('address', 'Address is Required').not().isEmpty(),
         check('email', 'Please include a valid email').isEmail(),
         check('password', 'Please enter a password with 6 or more characters').isLength({ min: 6 }),
         check('password2', 'Please enter a password2 with 6 or more characters').isLength({ min: 6 }),

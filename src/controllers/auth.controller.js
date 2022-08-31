@@ -41,7 +41,7 @@ export default class AuthController {
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
-    const { adress, email, password, password2, roleId } = req.body;
+    const { address, email, password, password2, roleId } = req.body;
 
     if (password !== password2) {
       return res.status(400).json({ errors: [{ msg: 'Invalid Credentials' }] });
@@ -53,7 +53,7 @@ export default class AuthController {
         return res.status(400).json({ errors: [{ msg: 'Email already registered' }] });
       }
 
-      const user = await this.authService.registerUserService(adress, email, password, roleId || ROLES_LIST.User);
+      const user = await this.authService.registerUserService(address, email, password, roleId || ROLES_LIST.User);
 
       const token = await this.authService.generateToken(user);
 
