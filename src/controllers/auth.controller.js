@@ -44,7 +44,7 @@ export default class AuthController {
     const { address, email, password, password2, roleId } = req.body;
 
     if (password !== password2) {
-      return res.status(400).json({ errors: [{ msg: 'Invalid Credentials' }] });
+      return res.status(400).json({ errors: [{ msg: 'Passwords do not match' }] });
     }
 
     try {
